@@ -36,3 +36,41 @@ https://github.com/joshua1988/vue-til-server.git
 
 ### 코딩 컨벤션
  - https://v2.vuejs.org/v2/style-guide/
+
+### lazy loading
+
+
+### router
+ - 기존 router 방식
+ ```html
+    <div id="app">
+		<header>
+			<router-link to="/login">로그인</router-link> |
+			<router-link to="/signup">회원가입</router-link>
+		</header>
+		<router-view></router-view>
+	</div>
+```
+ - 코드 스플리팅 방식 적용
+    -  `component: () => import()` 형태로 사용
+    - 페이지 이동시에 필요한 js 파일 가져오는 코드 형식으로 속도가 개선 효과 있음
+    - SPA 시스템에서 사용 권장 -> 초기 로딩 속도 빨라지고 사용자 경혐 높아짐
+    - https://webpack.js.org/guides/code-splitting/
+
+ ```javascript
+ routes: [
+		{
+			path: '/login',
+			component: () => import('@/views/LoginPage.vue'),
+		},
+		{
+			path: '/signup',
+			component: () => import('@/views/SignupPage.vue'),
+		},
+]
+ ```
+
+### 실행방식
+ -  1_signup branch
+    - `npm i`
+    - `npm install vue-router@3.5.3`
