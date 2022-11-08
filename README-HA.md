@@ -70,7 +70,14 @@ https://github.com/joshua1988/vue-til-server.git
 ]
  ```
 
+
+### axios 관련
+ - https://github.com/axios/axios#axioscreateconfig
+
 ### 실행방식
  -  1_signup branch
     - `npm i`
     - `npm install vue-router@3.5.3`
+
+
+
