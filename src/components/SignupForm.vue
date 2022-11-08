@@ -12,7 +12,8 @@
 			<label for="nickname">nickname: </label>
 			<input id="nickname" type="text" v-model="nickname" />
 		</div>
-		<button type="submit">login</button>
+		<button type="submit">회원 가입</button>
+		<p>{{ logMessage }}</p>
 	</form>
 </template>
 
@@ -22,20 +23,30 @@ import { registerUser } from '@/api/index';
 export default {
 	data() {
 		return {
+			// form value
 			username: '',
 			password: '',
 			nickname: '',
+			// log message
+			logMessage: '',
 		};
 	},
 	methods: {
-		submitForm() {
-			console.log('form 제출');
+		async submitForm() {
 			const userData = {
 				username: this.username,
 				password: this.password,
 				nickname: this.nickname,
 			};
-			registerUser(userData);
+			const { data } = await registerUser(userData);
+			console.log(data.username, data.password);
+			this.logMessage = `${this.username} 님이 가입되었습니다.`;
+			this.initForm();
+		},
+		initForm() {
+			this.username = '';
+			this.password = '';
+			this.nickname = '';
 		},
 	},
 };
