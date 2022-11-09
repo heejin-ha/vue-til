@@ -8,13 +8,15 @@
 			<label for="password">pw: </label>
 			<input id="password" type="text" v-model="password" />
 		</div>
-		<button type="submit">회원 가입</button>
+		<button type="submit"
+            :disabled="!isUserNameValid || !password">회원 가입</button>
         <p>{{ logMessage}}</p>
 	</form>
 </template>
 
 <script>
 import { loginUser } from '@/api/index';
+import { validateEmail } from '@/utils/validation';
 
 export default {
 	data() {
@@ -24,6 +26,11 @@ export default {
             logMessage: '',
 		};
 	},
+    computed: {
+        isUserNameValid() {
+            return validateEmail(this.username);
+        },
+    },
 	methods: {
 		async submitForm() {
             try {
