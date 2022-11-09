@@ -1,17 +1,26 @@
 <template>
-	<form @submit.prevent="submitForm">
-		<div>
-			<label for="username">id: </label>
-			<input id="username" type="text" v-model="username" />
-		</div>
-		<div>
-			<label for="password">pw: </label>
-			<input id="password" type="text" v-model="password" />
-		</div>
-		<button type="submit"
-            :disabled="!isUserNameValid || !password">회원 가입</button>
-        <p>{{ logMessage}}</p>
-	</form>
+    <div class="contents">
+        <div class="form-wrapper form-wrapper-sm">
+            <form @submit.prevent="submitForm" class="form">
+                <div>
+                    <label for="username">id: </label>
+                    <input id="username" type="text" v-model="username" />
+                    <p class="validation-text">
+                        <span class="warning" v-if="!isUserNameValid">
+                        Please enter an email address
+                        </span>
+                    </p>
+                </div>
+                <div>
+                    <label for="password">pw: </label>
+                    <input id="password" type="text" v-model="password" />
+                </div>
+                <button type="submit" class="btn"
+                    :disabled="!isUserNameValid || !password">회원 가입</button>
+                <p class="log">{{ logMessage}}</p>
+            </form>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -28,6 +37,7 @@ export default {
 	},
     computed: {
         isUserNameValid() {
+            if (!this.username) return false;
             return validateEmail(this.username);
         },
     },
