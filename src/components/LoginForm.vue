@@ -50,6 +50,12 @@ export default {
                 };
                 const { data } = await loginUser(userData);
                 this.logMessage = `${data.user.username} 님 환영합니다.`;
+
+                // mutation 호출
+                this.$store.commit('setUsername', data.user.username);
+
+                // 페이지 이동
+                this.$router.push('/main');
             } catch (error) {
                 this.logMessage = error.response.data;
             } finally {
