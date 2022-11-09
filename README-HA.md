@@ -40,7 +40,9 @@ https://github.com/joshua1988/vue-til-server.git
 ### lazy loading
 
 
-### router
+</br>
+
+### Router
  - 기존 router 방식
  ```html
     <div id="app">
@@ -69,15 +71,24 @@ https://github.com/joshua1988/vue-til-server.git
 		},
 ]
  ```
+  - https://router.vuejs.org/guide/essentials/navigation.html
 
+<br/>
 
-### axios 관련
+### Axios 관련
  - https://github.com/axios/axios#axioscreateconfig
+
+<br/>
 
 ### 실행방식
  -  1_signup branch
     - `npm i`
     - `npm install vue-router@3.5.3`
+
+
+### dependencies vs devDependencies
+ - `npm run build` 명령어 실행 시 `package.json > dependencies` 설정된 구성만 build 결과물에 포함 됨
+ - https://joshua1988.github.io/webpack-guide/build/npm-module-install.html#%EA%B0%9C%EB%B0%9C%EC%9A%A9-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC%EC%99%80-%EB%B0%B0%ED%8F%AC%EC%9A%A9-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EA%B5%AC%EB%B6%84%ED%95%98%EA%B8%B0
 
 
 
