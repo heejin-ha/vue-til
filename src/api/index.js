@@ -30,4 +30,8 @@ const fetchPosts = () => {
   return instance.get('posts');
 }
 
-export { registerUser, loginUser, fetchPosts };
+const registerPost = (post) => {
+  return instance.post('posts', post);
+}
+
+export { registerUser, loginUser, fetchPosts, registerPost };
