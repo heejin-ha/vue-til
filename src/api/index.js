@@ -2,7 +2,7 @@ import axios from "axios";
 import store from "@/store/index";
 import { setInterceptors } from './common/interceptors'
 
-
+// axios 초기화 함수
 const createInstance = () => {
   const instance = axios.create({
     baseURL: process.env.VUE_APP_API_URL,
@@ -15,12 +15,19 @@ const createInstance = () => {
 
 const instance = createInstance();
 
+// 회원가입 API
 const registerUser = userData => {
   return instance.post("signup", userData);
 };
 
+// 로그인 API
 const loginUser = userData => {
   return instance.post("login", userData);
 };
 
-export { registerUser, loginUser };
+// 학습 노트 데이터 조회 API
+const fetchPosts = () => {
+  return instance.get('posts');
+}
+
+export { registerUser, loginUser, fetchPosts };
