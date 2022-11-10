@@ -1,23 +1,23 @@
 <template>
-<header>
-	<div>
-	<router-link to="/" class="logo">
-		TIL
-	</router-link>
-	</div>
-	<div class="navigations">
-		<template v-if="isUserLogin">
-			<span>{{ $store.state.username }}</span>
-			<a href="javascript:;" @click="logoutUser">logout</a>
-		</template>
+	<header>
+		<div>
+			<router-link to="/" class="logo">
+				TIL
+				<span v-if="isUserLogin">{{ $store.state.username }}</span>
+			</router-link>
+		</div>
+		<div class="navigations">
+			<template v-if="isUserLogin">
+				<a href="javascript:;" @click="logoutUser">logout</a>
+			</template>
 
-		<template v-else>
-			<router-link to="/login">로그인</router-link>
-			<router-link to="/signup">회원가입</router-link>
-		</template>
-				
-	</div>
-</header>
+			<template v-else>
+				<router-link to="/login">로그인</router-link>
+				<router-link to="/signup">회원가입</router-link>
+			</template>
+					
+		</div>
+	</header>
 </template>
 
 <script>
