@@ -52,6 +52,7 @@ export default {
                 this.logMessage = `${data.user.username} 님 환영합니다.`;
 
                 // mutation 호출
+                this.$store.commit('setToken', data.token);
                 this.$store.commit('setUsername', data.user.username);
 
                 // 페이지 이동
