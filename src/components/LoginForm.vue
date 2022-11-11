@@ -16,7 +16,7 @@
                     <input id="password" type="text" v-model="password" />
                 </div>
                 <button type="submit" class="btn"
-                    :disabled="!isUserNameValid || !password">회원 가입</button>
+                    :disabled="!isUserNameValid || !password">로그인</button>
                 <p class="log">{{ logMessage}}</p>
             </form>
         </div>
