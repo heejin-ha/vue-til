@@ -26,6 +26,7 @@
 <script>
 import { loginUser } from '@/api/index';
 import { validateEmail } from '@/utils/validation';
+import { saveAuthToCookie, saveUserToCookie } from '@/utils/cookies';
 
 export default {
 	data() {
@@ -54,6 +55,9 @@ export default {
                 // mutation 호출
                 this.$store.commit('setToken', data.token);
                 this.$store.commit('setUsername', data.user.username);
+
+                saveAuthToCookie(data.token);
+                saveUserToCookie(data.user.username);
 
                 // 페이지 이동
                 this.$router.push('/main');
