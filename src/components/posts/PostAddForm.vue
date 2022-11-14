@@ -13,9 +13,12 @@
                         <label for="contents">Contents: </label>
                         <textarea type="text" id="contents" rows="3"
                             v-model="contents"></textarea>
+                        <p class="validation-text warning"
+                            v-if="!isContentsValid"> Contents must be less than 200.</p>
                     </div>
                     <button type="submit" class="btn">Create</button>
                 </form>
+                <p class="log">{{ logMesaage }}</p>
             </div>
         </div>
     </div>
@@ -28,15 +31,25 @@ export default {
     data() {
         return {
             title: '',
-            contents: ''
+            contents: '',
+            logMesaage: '',
+        }
+    },
+    computed: {
+        isContentsValid() {
+            return this.contents.length <= 200;
         }
     },
     methods: {
         async submitForm() {
-            await createPost({
-                title: this.title,
-                contents: this.contents
-            });
+            try {
+                await createPost({
+                    title: this.title,
+                    contents: this.contents
+                });
+            } catch (error) {
+                this.logMesaage = error.response.data.message;
+            }
         }
     }
 
