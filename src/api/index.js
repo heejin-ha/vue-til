@@ -1,9 +1,15 @@
 import axios from "axios";
 import store from "@/store/index";
-import { setInterceptors } from './common/interceptors'
+import { setInterceptors } from './common/interceptors';
+
+const createInstance = () => {
+  return axios.create({
+      baseURL: process.env.VUE_APP_API_URL,
+    });
+}
 
 // axios 초기화 함수
-const createInstance = () => {
+const createInstanceWithAuth = () => {
   const instance = axios.create({
     baseURL: process.env.VUE_APP_API_URL,
     headers: {
@@ -13,26 +19,5 @@ const createInstance = () => {
   return setInterceptors(instance);
 };
 
-const instance = createInstance();
-
-// 회원가입 API
-const registerUser = userData => {
-  return instance.post("signup", userData);
-};
-
-// 로그인 API
-const loginUser = userData => {
-  return instance.post("login", userData);
-};
-
-// 학습 노트 데이터 조회 API
-const fetchPosts = () => {
-  return instance.get('posts');
-}
-
-// 학습 노트 데이터 생성 API
-const createPost = (post) => {
-  return instance.post('posts', post);
-}
-
-export { registerUser, loginUser, fetchPosts, createPost };
+export const instance = createInstance();
+export const authInstance = createInstanceWithAuth();
