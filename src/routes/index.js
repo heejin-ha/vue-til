@@ -25,8 +25,11 @@ export default new VueRouter({
 		{
 			path: '/add',
 			component: () => import('@/views/PostAddPage.vue'),
-		},
-		{
+		}, {
+			path: '/post/:id',
+			component: () => import('@/views/PostEditPage.vue'),
+
+		}, {
 			path: '*', // 정해진 path 이외의 페이지 라우팅, https://router.vuejs.org/guide/essentials/history-mode.html#html5-mode
 			component: () => import('@/views/PageNotFound.vue'),
 		},
