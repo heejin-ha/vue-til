@@ -8,10 +8,11 @@
         <PostListItem
             v-for="postItem in postItems"
             :key="postItem._id"
-            :postItem="postItem"></PostListItem>
+            :postItem="postItem"
+            @refresh="fetchNotes"></PostListItem>
       </ul>
     </div>
-    
+
     <router-link to="/add" class="create-button">
       <ion-icon name="add-outline"></ion-icon>
     </router-link>

@@ -13,8 +13,13 @@ const createPost = (post) => {
     return authInstance.post('posts', post);
 }
 
+const deletePost = (id) => {
+    return authInstance.delete(`posts/${id}`);
+}
+
 export {
     fetchPosts,
-    createPost
+    createPost,
+    deletePost
 }
   
