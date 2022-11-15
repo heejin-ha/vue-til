@@ -4,7 +4,8 @@
         <div class="post-contents"> {{ postItem.contents}} </div>
         <div class="post-time"> 
             {{ postItem.createdAt}}
-            <ion-icon name="create-outline"></ion-icon>
+            <ion-icon name="create-outline"
+                @click="routeEditPage"></ion-icon>
             <ion-icon name="trash-outline"
                 @click="deleteItem"></ion-icon>
         </div>
@@ -26,7 +27,11 @@ export default {
             await deletePost(this.postItem._id);
             this.$emit('refresh');
             console.log(`${this.postItem._id} deleted`);
+        },
+        routeEditPage() {
+            this.$router.push(`/post/${this.postItem._id}`);
         }
+
     }
 }
 </script>
