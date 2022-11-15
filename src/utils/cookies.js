@@ -23,12 +23,17 @@ const getUserFromCookie = () => {
 const deleteCookie = (value) => {
     document.cookie = `${value}=; expires=Thu, 01 Jan 1970 00:00:01 GMT;`;
 }
+
+const deleteAllClear = () => {
+    deleteCookie('til_auth');
+    deleteCookie('til_user');
+}
   
 export {
     saveAuthToCookie,
     saveUserToCookie,
     getAuthFromCookie,
     getUserFromCookie,
-    deleteCookie,
+    deleteAllClear,
 };
   
