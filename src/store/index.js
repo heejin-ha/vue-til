@@ -26,6 +26,15 @@ export default new Vuex.Store({
         },
         setToken(state, token) {
             state.token = token;
+        },
+        clearToken(state) {
+            state.token = '';
+        }
+    },
+    actions: {
+        CLEAR_TOKEN_USER({commit}) {
+            commit('clearToken');
+            commit('clearUsername');
         }
     }
 });
