@@ -17,9 +17,19 @@ const deletePost = (id) => {
     return authInstance.delete(`posts/${id}`);
 }
 
+const fetchPost = (id) => {
+    return authInstance.get(`posts/${id}`);
+}
+
+const editPost = (id, post) => {
+    return authInstance.put(`posts/${id}`, post);
+}
+
 export {
     fetchPosts,
     createPost,
-    deletePost
+    deletePost,
+    fetchPost,
+    editPost
 }
   
