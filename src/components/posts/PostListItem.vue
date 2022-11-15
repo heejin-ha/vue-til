@@ -21,11 +21,11 @@ export default {
             required: true
         }
     },
-    filters: {
-        formatDate(value) {
-            return new Date(value);
-        }
-    },
+    // filters: {
+    //     formatDate(value) {
+    //         return new Date(value);
+    //     }
+    // },
     methods: {
         async deleteItem() {
             if (!confirm("Are you sure you want to delete")) return false;
