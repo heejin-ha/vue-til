@@ -97,5 +97,10 @@ https://github.com/joshua1988/vue-til-server.git
 ### ionicons 관련
  - https://ionic.io/ionicons
 
+### vue filter 관련 문서
+ - https://v2.vuejs.org/v2/guide/filters.html?redirect=true#ad
+
+### 라우터 네비게이션 가드 
+ - https://router.vuejs.org/guide/advanced/navigation-guards.html
 
 
